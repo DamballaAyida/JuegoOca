@@ -9,9 +9,17 @@ import javax.swing.JTextField;
 import javax.swing.GroupLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 import javax.swing.LayoutStyle;
-
 import org.vipsion.oca.controlador.Coordinador;
+
+/**
+ * <h1>PanelJugador</h1>
+ * <p>Contiene los elementos necesarios para la visualización de la información de cada {@link org.vipsion.oca.modelo.Jugador}</p> 
+ * @see org.vipsion.oca.vista.OcaGUI
+ * @see javax.swing.JPanel
+ */
+
 
 public class PanelJugador extends JPanel {
 
@@ -19,7 +27,7 @@ public class PanelJugador extends JPanel {
     private JLabel jLabel1;
     private JLabel jLabel2;
     private JLabel jLabel3;
-    private JLabel jLabel4;
+    private ImageIcon copa;
     private JTextField valorDado;
     private JTextField posicionTablero;
     private Coordinador coordinador;
@@ -29,37 +37,70 @@ public class PanelJugador extends JPanel {
         this.id = id;
         initComponents();
     }
+    /**
+     * Establece el <code>coordinador</code>
+     * @param coordinador {@link org.vipsion.oca.controlador.Coordinador}
+     */
 
     public void setCoordinador(Coordinador coordinador) {
         this.coordinador = coordinador;
     }
+    /**
+     * Establece el <code>valorDado</code>
+     * @param valor {@link org.vipsion.oca.modelo.Dado}
+     */
 
     public void setValorDado(int valor) {
         valorDado.setText(Integer.toString(valor));
     }
+    /**
+     * Estabece la <code>posicion</code> en el <code>tablero</code>
+     * @param posicion {@link org.vipsion.oca.modelo.Tablero}
+     */
 
     public void setPosicionTablero(int posicion) {
         posicionTablero.setText(Integer.toString(posicion));
     }
+    /**
+     * Desactiva el elmento JButton <code>TiraDado</code>
+     */
 
     public void disableTiraDado() {
         tiraDado.setEnabled(false);
     }
-
+/**
+ * Establece el ganador de la partida, lo cual produce cambios en el <code>PanelJugador</code> 
+ * 
+ */
     public void setGanador() {
         jLabel1.setText("Jugador " + id + " Ganador!!");
         jLabel1.setForeground(Color.RED);
+        jLabel1.setIcon(copa);
+        disableTiraDado();
     }
-
+/**
+ * Activa el elmento JButton <code>TiraDado</code>
+ */
     public void enableTiraDado() {
         tiraDado.setEnabled(true);
     }
+    /**
+     * Cambiara el estado de cada jugador en función de si es su turno o no.
+     * @param msj Contenido textual que se mostrara en el estado del jugador. 
+     */
+        public void cambiaEstado(String msj){
+        jLabel2.setText(msj);
+    }
+    /**
+     * Inicializa todos los componentes que conforman <code>PanelJugador</code>
+     */
 
     @SuppressWarnings("unchecked")
     private void initComponents() {
         jLabel1 = new JLabel();
         jLabel2 = new JLabel();
         jLabel3 = new JLabel();
+        copa=new ImageIcon("src/img/trofeo.png");
         valorDado = new JTextField();
         posicionTablero = new JTextField();
         tiraDado = new JButton();
@@ -120,6 +161,11 @@ public class PanelJugador extends JPanel {
                                         .addComponent(valorDado, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(102, Short.MAX_VALUE)));
     }
+    /**
+     * Captura los eventos provenientes del JButton
+     * @param evt Objeto de tipo ActionEvent 
+     * @see java.awt.event.ActionEvent
+     */
 
     private void juegaActionPerformed(ActionEvent evt) {
         coordinador.juega();
