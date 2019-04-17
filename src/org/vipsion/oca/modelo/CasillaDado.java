@@ -1,7 +1,15 @@
 
 package org.vipsion.oca.modelo;
 
-
+/**
+ * <h1>CasillaDado</h1>
+ * <p>
+ * Bonificará al jugador que caiga en ella con una tirada extra. {@link org.vipsion.oca.modelo.Tablero}</p>
+ *
+ * @see #posicion
+ * @see Ficha
+ * @see #posaFicha(org.vipsion.oca.modelo.Ficha)
+ */
 public class CasillaDado extends Casilla{
     
     private final int turnosExtra;
