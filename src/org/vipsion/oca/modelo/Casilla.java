@@ -30,7 +30,7 @@ public class Casilla {
 
     /**
      * Establece la <code>posición</code> del <code>Tablero</code> que ocupa la
-     * <code>Ficha</code>
+     * <code>Ficha</code>.
      *
      * @param ficha {@link org.vipsion.oca.modelo.Ficha}
      */
