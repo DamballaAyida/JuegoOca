@@ -55,6 +55,11 @@ public class Juego {
             sigTurno = turno;
             jugadores.get(turno).decrementaTurnosExtra();
         }
+        else if(jugadores.get(sigTurno).getTurnoSinJugar() > 0){
+            jugadores.get(sigTurno).decrementaTurnosSinJugar();
+            sigTurno = turno;    
+        }
+        
         return (sigTurno);
     }
 

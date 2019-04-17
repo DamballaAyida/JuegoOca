@@ -16,6 +16,8 @@ public class Ficha {
     private int id;
 
     private int turnosExtra;
+    
+    private int turnoSinJugar;
 
     private Boolean fin;
     // private int turnosSinTirar; 
@@ -43,12 +45,18 @@ public class Ficha {
         posicion = 1;
         fin = false;
         turnosExtra = 0;
+        turnoSinJugar=0;
     }
      /**
      * Retorna la <code>casilla</code> que ocupa la ficha en el tablero.
      * @return {@link org.vipsion.oca.modelo.Casilla#posicion}
      */
-
+    public int getTurnoSinJugar(){
+        return turnoSinJugar;
+    }
+    public void setTurnoSinJugar(int turnoSinJugar){
+        this.turnoSinJugar=turnoSinJugar;
+    }
     public int getPosicion() {
         return posicion;
     }
@@ -79,7 +87,19 @@ public class Ficha {
      * Reduce en uno los turnos que tiene por jugar <code>Ficha</code>
      */
     public void decrementaTurnosExtra() {
-        turnosExtra--;
+        this.turnosExtra--;
+    }
+     /**
+     * El proximo turno no prodrá jugar <code>Ficha</code>
+     */
+    public void turnoSinJugar(){
+        this.turnoSinJugar++;  
+    }
+     /**
+     * Da la posibilidad de volver a jugar tras cumplir la penalización. <code>Ficha</code>
+     */
+    public void decrementaTurnoSinJugar(){
+        if(turnoSinJugar>0)this.turnoSinJugar--;
     }
 
 }

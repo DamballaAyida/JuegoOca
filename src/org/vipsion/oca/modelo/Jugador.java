@@ -71,8 +71,16 @@ public class Jugador {
      * @see org.vipsion.oca.modelo.Ficha#setTurnosExtra(int)
      * @see org.vipsion.oca.modelo.Oca
      */
+    
     public int getTurnosExtra() {
-        return (ficha.getTurnosExtra());
+        return ficha.getTurnosExtra();
+    }
+     /**
+     * Llamá al método {@link org.vipsion.oca.modelo.Ficha#getTurnoSinJugar()
+     * }
+     */
+    public int getTurnoSinJugar(){
+        return ficha.getTurnoSinJugar();
     }
 
     /**
@@ -81,6 +89,20 @@ public class Jugador {
      */
     public void decrementaTurnosExtra() {
         ficha.decrementaTurnosExtra();
+    }
+        /**
+     * Llamá al método {@link org.vipsion.oca.modelo.Ficha#decrementaTurnosSinJugar()
+     * }
+     */
+    public void decrementaTurnosSinJugar() {
+        ficha.decrementaTurnoSinJugar();
+    }
+            /**
+     * Llamá al método {@link org.vipsion.oca.modelo.Ficha#incrementaTurnosSinJugar()
+     * }
+     */
+    public void incrementaTurnosSinJugar(){
+        ficha.turnoSinJugar();
     }
 
     /**
