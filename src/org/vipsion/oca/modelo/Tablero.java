@@ -29,6 +29,8 @@ public class Tablero {
         for (int i = 0; i < numCasillas; i++) {
             this.casillas.add(new Casilla(i + 1));
         }
+        casillas.set(5, new CasillaPuente(6));
+        casillas.set(11, new CasillaPuente(12)); 
         casillas.set(8, new Oca(9, 5));
         casillas.set(17, new Oca(18, 5));
         casillas.set(18, new CasillaPosada(19));
