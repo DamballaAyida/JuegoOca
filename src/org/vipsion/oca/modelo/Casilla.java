@@ -27,7 +27,20 @@ public class Casilla {
     public Casilla(int posicion) {
         this.posicion = posicion;
     }
-
+    /**
+     * Establece la posición de Casilla.
+     * @param posicion 
+     */
+    public void setPosicion(int posicion){
+        this.posicion=posicion;
+    }
+    /**
+     * Retorna la posición de Casilla
+     * @return <code>posicion</code> que ocupa la <code>ficha</code>
+     */
+    public int getPosicion(){
+        return this.posicion;
+    }
     /**
      * Establece la <code>posición</code> del <code>Tablero</code> que ocupa la
      * <code>Ficha</code>
